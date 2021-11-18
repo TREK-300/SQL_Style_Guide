@@ -1,69 +1,23 @@
 # Trek_300 Style Guide
 
-### Use indented upper case SQL-commands
+The goal is to improve readability and seeing the structure of the sql more clearly.
 
-It is more readable, because you can see the structure of the SQL clearly
-
-```sql
--- Good
-SELECT * 
-FROM users
-
--- Bad
-SELECT * FROM users
-
--- Bad
-Select * From users
-```
-
-### Put each selected column on a new line
-
-Put each column in a line to better see the involved column, start each column with a comma to better see when a new colum starts
+* Write clausels (SELECT, FROM, WHERE) uppercase. 
+* Put comma before each column
+* Indent AND in WHERE Clausel
+* Put spaces inside parenthesis
+* Use the as clausel
+* Indent ON in JOIN clausel
+* Use the term INNER JOIN instead of JOIN
+* Write Aliases small
 
 ```sql
--- Good
-SELECT ID
-     , NAME
-FROM users 
-
--- Bad
-SELECT ID, NAME
-FROM users 
-```
-
-### Indent the WHERE Clausel and start AND in a new line
-
-```sql
--- Good
-SELECT ID
-     , NAME
-FROM users 
-WHERE 1 = 1
-  AND ID = 200
-  AND Name = 'Smith'
-
--- Bad
-SELECT ID
-     , NAME
-FROM users 
-WHERE ID = 200 AND Name = 'Smith'
-```
-
-### Use space inside of parenthesis
-
-```sql
--- Good
-SELECT ID
-     , NAME
-FROM users 
+SELECT us.ID
+     , us.AME
+     , us.LAST_NAME
+FROM USER_TABLE as us
+LEFT JOIN oders as or
+  ON us.ID = or.ID
 WHERE 1 = 1
   AND ID in ( 200, 300, 400 )
-
-
--- Bad
-SELECT ID
-     , NAME
-FROM users 
-WHERE 1 = 1
-  AND ID in (200,300,400)
-```
+  AND Country = 'USA'
