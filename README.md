@@ -15,6 +15,9 @@ The goal is to improve readability and seeing the structure of the sql more clea
 SELECT us.ID
      , us.AME
      , us.LAST_NAME
+     , (CASE WHEN ID = 10 THEN 20
+             WHEN ID = 20 THEN 30 
+             WHEN ID = 30 THEN 40 ELSE 30 END) as NEW_ID
 FROM USER_TABLE as us
 LEFT JOIN oders as or
   ON us.ID = or.ID
