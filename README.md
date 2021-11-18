@@ -19,7 +19,7 @@ SELECT us.ID
              WHEN ID = 20 THEN 30 
              WHEN ID = 30 THEN 40 ELSE 30 END) as NEW_ID
 FROM USER_TABLE as us
-LEFT JOIN oders as or
+LEFT JOIN ORDERS_TABLE as or
   ON us.ID = or.ID
 WHERE 1 = 1
   AND ID in ( 200, 300, 400 )
