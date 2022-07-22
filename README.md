@@ -2,15 +2,6 @@
 
 The goal is to improve readability and seeing the structure of the sql more clearly.
 
-* Write clausels (SELECT, FROM, WHERE) uppercase. 
-* Put comma before each column
-* Indent AND in WHERE Clausel
-* Put spaces inside parenthesis
-* Use the as clausel
-* Indent ON in JOIN clausel
-* Use the term INNER JOIN instead of JOIN
-* Write Aliases small
-
 ```sql
 SELECT 
      em.BUSINESSENTITYID 
@@ -29,3 +20,10 @@ LEFT JOIN    person.STATEPROVINCE          as sp   ON   sp.STATEPROVINCEID = ad.
 WHERE 1 = 1
   AND ID in ( 200, 300, 400 )
   AND Country = 'USA'
+_______________________________________________________
+* Write clausels (SELECT, FROM, WHERE) uppercase -> Define the border of a SQL statement 
+* Join Table at the same Point                   -> Fast to see the joined tables
+* Put comma before each column                   -> The most important element in a statement
+* Indent AND in WHERE Clausel
+* Put spaces inside parenthesis
+* Write Aliases small mit two words               -> less important therefor small
