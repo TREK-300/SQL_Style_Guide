@@ -7,11 +7,11 @@ SELECT
      em.BUSINESSENTITYID 
    , pe.TITLE 
    , pp.PHONENUMBER 
-   , pe.NAME              AS PhoneNumberType 
+   , pe.NAME              as PhoneNumberType 
    , ea.EMAILADDRESS 
    , ad.ADDRESSLINE1 
-   , sp.NAME              AS StateProvinceName 
-   , cr.NAME              AS CountryRegionName
+   , sp.NAME              as StateProvinceName 
+   , cr.NAME              as CountryRegionName
 FROM humanresources.EMPLOYEE               as em
 INNER JOIN   person.PERSON                 as pe   ON  pe.BUSINESSENTITYID = em.BUSINESSENTITYID
 INNER JOIN   person.BUSINESSENTITYADDRESS  as be   ON  be.BUSINESSENTITYID = em.BUSINESSENTITYID
