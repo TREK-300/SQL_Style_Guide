@@ -12,15 +12,20 @@ The goal is to improve readability and seeing the structure of the sql more clea
 * Write Aliases small
 
 ```sql
-SELECT usr.ID
-     , usr.AME
-     , usr.LAST_NAME
-     , (CASE WHEN ID = 10 THEN 20
-             WHEN ID = 20 THEN 30 
-             WHEN ID = 30 THEN 40 ELSE 30 END) as NEW_ID
-FROM USER_TABLE as usr
-LEFT JOIN ORDERS_TABLE as ord
-  ON usr.ID = ord.ID
+SELECT 
+     em.BUSINESSENTITYID 
+   , pe.TITLE 
+   , pp.PHONENUMBER 
+   , pe.NAME              AS PhoneNumberType 
+   , ea.EMAILADDRESS 
+   , ad.ADDRESSLINE1 
+   , sp.NAME              AS StateProvinceName 
+   , cr.NAME              AS CountryRegionName
+FROM humanresources.EMPLOYEE               as em
+INNER JOIN   person.PERSON                 as pe   ON  pe.BUSINESSENTITYID = em.BUSINESSENTITYID
+INNER JOIN   person.BUSINESSENTITYADDRESS  as be   ON  be.BUSINESSENTITYID = em.BUSINESSENTITYID
+LEFT JOIN    person.ADDRESS                as ad   ON         ad.ADDRESSID = be.ADDRESSID
+LEFT JOIN    person.STATEPROVINCE          as sp   ON   sp.STATEPROVINCEID = ad.STATEPROVINCEID
 WHERE 1 = 1
   AND ID in ( 200, 300, 400 )
   AND Country = 'USA'
